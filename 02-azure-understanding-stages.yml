@@ -16,40 +16,47 @@ stages:
     steps:
     - bash: echo build
     - bash: echo $(Pipelinelevelvariable)
-  - job: Second
-    steps:
-    - bash: echo build
-- stage: Dev
-  variables:
-    enviroment : Dev
-  dependsOn: Build
-  jobs:
-    - job: First
-      steps:
-      - bash: echo dev
-- stage: QA
-  variables:
-    enviroment : QA
-  dependsOn: Build
-  jobs:
-  - job: First
-    steps:
-     - bash: echo QA
-     - bash: echo $(enviroment)
-- stage: staging
-  dependsOn: QA
-  jobs:
-  - job: First
-    steps:
-     - bash: echo staging
-- stage: Prod
-  dependsOn:
-  - Dev
-  - QA
-  - staging
-  jobs:
-  - job: First
-    steps:
-     - bash: echo Prod
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.BuildID)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourcesDirectory)
+    - bash: echo $(System.DefaultWorkingDirectory)
+    - bash: ls -r $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
+# - job: Second
+#   steps:
+#   - bash: echo build
+# - stage: Dev
+#   variables:
+#     enviroment : Dev
+#   dependsOn: Build
+#   jobs:
+#     - job: First
+#       steps:
+#       - bash: echo dev
+# - stage: QA
+#   variables:
+#     enviroment : QA
+#   dependsOn: Build
+#   jobs:
+#   - job: First
+#     steps:
+#      - bash: echo QA
+#      - bash: echo $(enviroment)
+# - stage: staging
+#   dependsOn: QA
+#   jobs:
+#   - job: First
+#     steps:
+#      - bash: echo staging
+# - stage: Prod
+#   dependsOn:
+#   - Dev
+#   - QA
+#   - staging
+#   jobs:
+#   - job: First
+#     steps:
+#      - bash: echo Prod
 
 
