@@ -13,10 +13,10 @@ strategy:
     mac:
       operatingSystem: 'macos-latest'
 pool:
-  vmImage: $(operatingSytem)
+  vmImage: $(operatingSystem)
 
 steps:
-- script: echo running on $(operatingSytem)
+- script: echo running on $(operatingSystem)
   displayName: 'Run a one-line script'
 
 
