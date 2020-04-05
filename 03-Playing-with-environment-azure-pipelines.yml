@@ -22,9 +22,9 @@ stages:
     steps:
     - bash: echo "Build the pipeline"
 
-- stage: Dev Deploy
+- stage: DevDeploy
   jobs:
-  - deployment : Dev deploy
+  - deployment : Devdeploy
     environment: Dev
     strategy:
       runOnce:
@@ -32,9 +32,9 @@ stages:
           steps:
           - script: echo deploy to dev
 
-- stage: QA Deploy
+- stage: QADeploy
   jobs:
-  - deployment : QA deploy
+  - deployment : QAdeploy
     environment: QA
     strategy:
       runOnce:
