@@ -12,18 +12,21 @@ pool:
 stages:
 - stage: Build
   jobs:
-    - job:First
-      steps:
-        - bash: echo build
+  - job: First
+    steps:
+    - bash: echo build
+  - job: First
+    steps:
+    - bash: echo build
 - stage: Dev
-    - job:Second
+    - job: First
       steps:
          - bash: echo dev
 - stage: QA
-    -job:third
+    -job: First
      steps:
          - bash: echo QA
-- stage: Staging
+- stage: First
      -job:Four
       steps:
          - bash:echo staging
