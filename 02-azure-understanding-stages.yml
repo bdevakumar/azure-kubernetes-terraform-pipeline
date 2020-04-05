@@ -13,23 +13,23 @@ stages:
 - stage: Build
   jobs:
     - job:First
-       steps:
+      steps:
         - bash: echo build
 - stage: Dev
     - job:Second
-       steps:
+      steps:
          - bash: echo dev
 - stage: QA
     -job:third
-        steps:
+     steps:
          - bash: echo QA
 - stage: Staging
      -job:Four
-       steps:
+      steps:
          - bash:echo staging
 - stage: Prod
       -job:Five
-         steps:
+       steps:
           - bash:echo Prod
 
 
