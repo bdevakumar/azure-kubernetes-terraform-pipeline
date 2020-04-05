@@ -25,15 +25,11 @@ stages:
          - bash: echo QA
 - stage: Staging
      -job:Four
-     steps:
-     - bash:echo staging
+       steps:
+         - bash:echo staging
 - stage: Prod
       -job:Five
-     steps:
-     - bash:echo Prod
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+         steps:
+          - bash:echo Prod
 
 
