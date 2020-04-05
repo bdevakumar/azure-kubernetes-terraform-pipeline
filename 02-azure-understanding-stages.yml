@@ -11,7 +11,7 @@ pool:
 
 stages:
 - stage: Build
-   jobs:
+  jobs:
     - job:First
        steps:
         - bash: echo build
