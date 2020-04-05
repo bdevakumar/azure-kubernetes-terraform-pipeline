@@ -38,7 +38,7 @@ jobs:
     
 - job: job4
   dependsOn:
-   job1
+
    job2
    job3
 
