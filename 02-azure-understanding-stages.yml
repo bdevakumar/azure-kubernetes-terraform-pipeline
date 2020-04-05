@@ -15,24 +15,28 @@ stages:
   - job: First
     steps:
     - bash: echo build
-  - job: First
+  - job: Second
     steps:
     - bash: echo build
 - stage: Dev
+  jobs:
     - job: First
       steps:
-         - bash: echo dev
+      - bash: echo dev
 - stage: QA
-    -job: First
-     steps:
-         - bash: echo QA
-- stage: First
-     -job:Four
-      steps:
-         - bash:echo staging
+  jobs:
+  - job: First
+    steps:
+     - bash: echo QA
+- stage: staging
+  jobs:
+  - job:First
+    steps:
+     - bash:echo staging
 - stage: Prod
-      -job:Five
-       steps:
-          - bash:echo Prod
+  jobs:
+  -.job:First
+    steps:
+    - bash:echo Prod
 
 
