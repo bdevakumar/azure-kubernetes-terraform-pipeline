@@ -30,13 +30,13 @@ stages:
      - bash: echo QA
 - stage: staging
   jobs:
-  - job:First
+  - job: First
     steps:
-     - bash:echo staging
+     - bash: echo staging
 - stage: Prod
   jobs:
-  -.job:First
+  - job: First
     steps:
-    - bash:echo Prod
+     - bash: echo Prod
 
 
