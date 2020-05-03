@@ -1,30 +1,20 @@
-# Docker
-# Build a Docker image 
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
 - master
 
-resources:
-- repo: self
+pool:
+  vmImage: 'ubuntu-latest'
 
-variables:
-  tag: '$(Build.BuildId)'
-
-stages:
-- stage: Build
-  displayName: Build image
-  jobs:  
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        containerRegistry: 'Docker Connection'
-        repository: 'bdevakumar/currency-exchange-devops'
-        command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
-        tags: '$(tag)'
+steps:
+- script: echo K8S Terraform Azure!
+  displayName: 'Run a one scirpt line' 
+- task: TerraformCLI@0
+  inputs:
+    command: 'init'
+    backendType: 'azurerm'
+    backendServiceArm: 'aksterr'
+    ensureBackend: true
+    backendAzureRmResourceGroupLocation: 'terraform-backend-rg'
+    backendAzureRmStorageAccountName: 'storageaccountdeva123'
+    backendAzureRmContainerName: 'storageaccountdevacontainer'
+    backendAzureRmKey: 'kubernetes-dev.tfstate'
